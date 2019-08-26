@@ -1,0 +1,49 @@
+<div class="details-form">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Name"
+        ngModel
+        name="name"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Father's Name"
+        ngModel
+        name="fname"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Contact Number"
+        ngModel
+        name="cnumber"
+        required
+      />
+    </mat-form-field>
+    <button
+    *ngIf="!isLoading"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!f.valid"
+    >
+      Save
+    </button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</div>
